@@ -33,6 +33,12 @@ def computeError(maxDegree,dfTrain,dfVal):
     # Computing training and validation RMSE errors for each corresponding
 	# degree value.
 	# TODO: Implement me
+	for d in deg:
+		beta = fit_beta(dfTrain, d)
+		yPredTrain = predict_y(dfTrain.x, beta)
+		errTrain[d] = rmse(dfTrain.y, yPredTrain)
+		yPredVal = predict_y(dfVal.x, beta)
+		errVal[d] = rmse(dfVal.y, yPredVal)
 
     return {'deg':deg,'errTrain':errTrain,'errVal':errVal}
 
