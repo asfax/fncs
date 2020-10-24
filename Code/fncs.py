@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-#import pandas
 from scipy.interpolate import interp1d
 
 
@@ -36,8 +35,8 @@ def computeError(maxDegree, dfTrain, dfVal):
     errVal = np.zeros(len(deg))
 
     # Computing training and validation RMSE errors for each corresponding
-	# degree value.
-	# TODO: Implement me
+    # degree value.
+    # TODO: Implement me
     for d in deg:
         beta = fit_beta(dfTrain, d)
         yPredTrain = predict_y(dfTrain.x, beta)
@@ -59,7 +58,11 @@ def plotError(err):
     # Plotting results
     intDeg = np.linspace(err['deg'][0], err['deg'][-1],100)
     plt.plot(err['deg'], err['errTrain'], 'bs', err['deg'], err['errVal'], 'rs')
-    plt.plot(intDeg, intTrain(intDeg), 'b-', intDeg, intVal(intDeg), 'r-')
+    plt.plot(intDeg, 
+	     intTrain(intDeg), 
+	     'b-', 
+	     intDeg, 
+	     intVal(intDeg), 'r-')
 
     plt.legend(('Training Error', 'Validation Error'))
     plt.show()
