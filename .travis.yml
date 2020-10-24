@@ -9,7 +9,7 @@ install:
   - pip install black
 script:
   - python3 test.py
-  - black --check Code/
+  - pytest --flake8
   
 after_success:
   - coveralls
