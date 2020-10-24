@@ -44,7 +44,7 @@ def computeError(maxDegree, dfTrain, dfVal):
         yPredVal = predict_y(dfVal.x, beta)
         errVal[d] = rmse(dfVal.y, yPredVal)
 
-    return {'deg': deg,'errTrain': errTrain,'errVal': errVal}
+    return {'deg': deg, 'errTrain': errTrain, 'errVal': errVal}
 
 
 def plotError(err):
@@ -54,15 +54,11 @@ def plotError(err):
     intTrain = interp1d(tmp, tmpF(tmp), kind='cubic')
     tmpF = interp1d(err['deg'], err['errVal'], kind='linear')
     intVal = interp1d(tmp, tmpF(tmp), kind='cubic')
-    
+
     # Plotting results
-    intDeg = np.linspace(err['deg'][0], err['deg'][-1],100)
+    intDeg = np.linspace(err['deg'][0], err['deg'][-1], 100)
     plt.plot(err['deg'], err['errTrain'], 'bs', err['deg'], err['errVal'], 'rs')
-    plt.plot(intDeg, 
-	     intTrain(intDeg), 
-	     'b-', 
-	     intDeg, 
-	     intVal(intDeg), 'r-')
+    plt.plot(intDeg, intTrain(intDeg), 'b-', intDeg, intVal(intDeg), 'r-')
 
     plt.legend(('Training Error', 'Validation Error'))
     plt.show()
