@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <title>Recommendations</title>
+      <style>
+         .movie-list {
+         text-align:center;
+         width: 100%;
+         margin-top: 20px;
+         padding: 5px 5px 5px 5px;
+         }
+         td,th {
+         border: 1px solid;
+         padding: 7px;
+         text-align:center;
+         }
+         .movie-list tr:nth-child(even){background-color: #f2f2f2;}
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="col-md-4"></div>
+         <div class="col-md-4">
+            <table border='1' class="movie-list">
+               <thead>
+                  <tr>
+                     <th>Recommended Movies</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for row in data %}
+                  <tr>
+                     <td>{{row}}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+         <div class="col-md-4"></div>
+      </div>
+   </body>
+</html>
