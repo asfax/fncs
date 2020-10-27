@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 from ensemble import ensemble
-from user_based import get_rec_user 
+from user_based import get_rec_user
 from item_based import get_rec_item
 app = Flask(__name__, template_folder='.')
 
